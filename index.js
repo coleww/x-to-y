@@ -1,6 +1,6 @@
 var Twit = require('twit')
 var pick = require('pick-random')
-var capitalize = require('capitalize')
+var cap = require('capitalize')
 var addEnder = require('add-ender')
 var iscool = require('iscool')()
 var cleanThisTweetUp = require('clean-this-tweet-up')
