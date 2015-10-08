@@ -12,5 +12,23 @@
   },
   "license": "MIT",
   "description": "a tool for making x-to-y style bots",
-  "author": "Cole Willsea <coleww@gmail.com> (http://colewillsea.com/)"
+  "author": "Cole Willsea <coleww@gmail.com> (http://colewillsea.com/)",
+  "devDependencies": {
+    "tap": "^1.4.1"
+  },
+  "scripts": {
+    "test": "tap test/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/coleww/x-to-y.git"
+  },
+  "keywords": [
+    "twitter",
+    "bot"
+  ],
+  "bugs": {
+    "url": "https://github.com/coleww/x-to-y/issues"
+  },
+  "homepage": "https://github.com/coleww/x-to-y#readme"
 }
