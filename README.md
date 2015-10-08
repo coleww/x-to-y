@@ -10,7 +10,7 @@ a tool for rapidly scaffolding x-to-y style twitter bots. inspired by [boy2bot](
 ### EXAMPLE
 
 ```
-require('x-to-y')('bot', 'boy', { consumer_key: 'SPIDERS!!!!', consumer_secret: 'SPIDERS!!!!', access_token: 'SPIDERS!!!!', access_token_secret: 'SPIDERS!!!!'})
+require('x-to-y')('bot', 'boy', 'en', { consumer_key: 'SPIDERS!!!!', consumer_secret: 'SPIDERS!!!!', access_token: 'SPIDERS!!!!', access_token_secret: 'SPIDERS!!!!'})
 ```
 
 call that on a cronjob and yr done! A 1 line bot!
@@ -18,7 +18,7 @@ call that on a cronjob and yr done! A 1 line bot!
 The sauce code is annotated if u want to, oh, i'll just paste the relevant portion here:
 
 ```
-  T.get('search/tweets', { q: x, count: 100, result_type: 'recent' }, function(err, data, response) { // grab 100 of the most recent tweets with this X
+  T.get('search/tweets', { q: x, count: 100, result_type: 'recent', lang: lang }, function(err, data, response) { // grab 100 of the most recent tweets with this X in the given language
     var cleaned = data.statuses.map(cleanThisTweetUp).filter(function(t){ // remove usernames, links, hastags, etc.
       return t && !!t.match(x) && iscool(t) // filter out ones that don't actually contain x, or that are not cool
     })
