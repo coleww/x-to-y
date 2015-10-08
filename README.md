@@ -10,16 +10,10 @@ a tool for rapidly scaffolding x-to-y style twitter bots. inspired by [boy2bot](
 ### EXAMPLE
 
 ```
-var xToY = require('x-to-y')
-xToY('bot', 'boy', {
-      consumer_key: 'SPIDERS!!!!',
-      consumer_secret: 'SPIDERS!!!!',
-      access_token: 'SPIDERS!!!!',
-      access_token_secret: 'SPIDERS!!!!'
-    })
+require('x-to-y')('bot', 'boy', { consumer_key: 'SPIDERS!!!!', consumer_secret: 'SPIDERS!!!!', access_token: 'SPIDERS!!!!', access_token_secret: 'SPIDERS!!!!'})
 ```
 
-call that on a cronjob and yr done!
+call that on a cronjob and yr done! A 1 line bot!
 
 The sauce code is annotated if u want to, oh, i'll just paste the relevant portion here:
 
