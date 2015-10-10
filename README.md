@@ -1,7 +1,7 @@
 x-to-y
 ----------------
 
-a tool for rapidly scaffolding x-to-y style twitter bots. inspired by [boy2bot](https://twitter.com/boy2bot) by [rainshapes](https://twitter.com/rainshapes)
+a tool for rapidly scaffolding x-to-y style twitter bots. inspired by [boy2bot](https://twitter.com/boy2bot) by [rainshapes](https://twitter.com/rainshapes), used to power [bot_2_boy](https://twitter.com/bot_2_boy)
 
 [![NPM](https://nodei.co/npm/x-to-y.png)](https://nodei.co/npm/x-to-y/)
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard)
