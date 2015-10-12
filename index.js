@@ -12,15 +12,19 @@ module.exports = function(x, y, lang, config) {
       return t && !!t.match(x) && tipots(t) // filter out ones that don't actually contain x, or that are not cool
     }).map(function(x){
       return x.match(/[a-zA-Z0-9\s]+/g)[0] // umm hopefully this destroys the weird image bug
+    }).filter(function(y){
+      return y.match(x)
     })
-    var toot = pick(cleaned)[0] // pick one at random
-    toot = addEnder(cap(toot.replace(new RegExp(x, 'gi'), y))) // replace x with y, capitalize the tweet, and add a period if one is not present
-    console.log(toot)
-    if (toot.length < 140) { // if y is longer than x, then it is possible to make a too long tweet! that is not good!
-      T.post('statuses/update', {status: toot}, function (err, data, response) { // tweet it out to the world!
-        console.log(err)
-        console.log(data)
-      })
+    if (cleaned){
+      var toot = pick(cleaned)[0] // pick one at random
+      toot = addEnder(cap(toot.replace(new RegExp(x, 'gi'), y))) // replace x with y, capitalize the tweet, and add a period if one is not present
+      console.log(toot)
+      if (toot.length < 140) { // if y is longer than x, then it is possible to make a too long tweet! that is not good!
+        T.post('statuses/update', {status: toot}, function (err, data, response) { // tweet it out to the world!
+          console.log(err)
+          console.log(data)
+        })
+      }
     }
   })
 }
