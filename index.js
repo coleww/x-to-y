@@ -10,7 +10,9 @@ module.exports = function(x, y, lang, config) {
 
   var T = new Twit(config)
   T.get('search/tweets', { q: x, count: 100, result_type: 'recent', lang: lang}, function(err, data, response) { // grab 100 of the most recent tweets with this X
-    var cleaned = data.statuses.map(cleanThisTweetUp).filter(function(t){ // remove usernames, links, hastags, etc.
+    var cleaned = data.statuses.filter(function (t) {
+      return !t.entities.user_mentions.length
+    }).map(cleanThisTweetUp).filter(function (t) { // remove usernames, links, hastags, etc.
       return t && !!t.match(x) && tipots(t) // filter out ones that don't actually contain x, or that are not cool
     }).map(function(x){
       return x.match(/[a-zA-Z0-9\s]+/g)[0] // umm hopefully this destroys the weird image bug
