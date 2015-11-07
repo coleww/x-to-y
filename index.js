@@ -15,7 +15,11 @@ module.exports = function(x, y, lang, config) {
     }).map(cleanThisTweetUp).filter(function (t) { // remove usernames, links, hastags, etc.
       return t && !!t.match(x) && tipots(t) // filter out ones that don't actually contain x, or that are not cool
     }).map(function(x){
-      return x.match(/[a-zA-Z0-9\s]+/g)[0] // umm hopefully this destroys the weird image bug
+      return x.split(' ').map(function (w) {
+        return w.match(/\//) ? '' : w // REALLY destroy all the links
+      }).filter(function (x) {
+        return !!x
+      }).join(' ')
     }).filter(function(t){
       return !!t.match(x)
     })
