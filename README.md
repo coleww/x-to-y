@@ -10,8 +10,16 @@ a tool for rapidly scaffolding x-to-y style twitter bots. inspired by [boy2bot](
 ### EXAMPLE
 
 ```
-require('x-to-y')('bot', 'boy', 'en', { consumer_key: 'SPIDERS!!!!', consumer_secret: 'SPIDERS!!!!', access_token: 'SPIDERS!!!!', access_token_secret: 'SPIDERS!!!!'})
+require('x-to-y')('bot', 'boy', 'en', { consumer_key: 'SPIDERS!!!!', consumer_secret: 'SPIDERS!!!!', access_token: 'SPIDERS!!!!', access_token_secret: 'SPIDERS!!!!'}, ['nononono'])
 ```
+
+
+`xToY(x, y, language, twitConfig, ignores)`
+- x: the string to search/replace on. Will accept `"multiple words"`
+- y: the string to replace x with. Will accept `"multiple words"`
+- language: theoretically this bot should work in any language? 'en' for english, etc.
+- twitConfig: API keys formatted in the ttezel/twit fashion
+- ignores: optional array of words to reject. That way you can reject tweets that would make yr bot unfunny. For example, I have one that searches for "chipotle burrito" as the x, and I put `["bowl"]` as the ignores because a burrito bowl is different from a burrito in numerous ways.
 
 call that on a cronjob and yr done! A 1 line bot!
 
