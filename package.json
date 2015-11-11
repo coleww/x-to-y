@@ -5,9 +5,9 @@
   "dependencies": {
     "add-ender": "^1.0.0",
     "capitalize": "^1.0.0",
-    "clean-this-tweet-up": "^1.0.1",
+    "clean-this-tweet-up": "^1.0.2",
     "pick-random": "^1.0.1",
-    "this-is-probably-ok-to-say": "^1.0.7",
+    "this-is-probably-ok-to-say": "^1.0.8",
     "twit": "^2.1.0"
   },
   "license": "MIT",
