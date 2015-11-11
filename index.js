@@ -6,7 +6,7 @@ var tipots = require('this-is-probably-ok-to-say')
 var cleanThisTweetUp = require('clean-this-tweet-up')
 
 
-module.exports = function(x, y, lang, config) {
+module.exports = function(x, y, lang, config, nopes) {
 
   var T = new Twit(config)
   T.get('search/tweets', { q: x, count: 100, result_type: 'recent', lang: lang}, function(err, data, response) { // grab 100 of the most recent tweets with this X
@@ -23,6 +23,14 @@ module.exports = function(x, y, lang, config) {
     }).filter(function(t){
       return !!t.match(x)
     })
+    if (nopes) {
+      cleaned = cleaned.filter(function (t) {
+        return t.split(' ').every(function (w) {
+          return nopes.indexOf(w.replace(/\W/g, '').toLowerCase()) === -1
+        })
+      })
+    }
+
     if (cleaned){
       var toot = pick(cleaned)[0] // pick one at random
       toot = addEnder(cap(toot.replace(new RegExp(x, 'gi'), y))) // replace x with y, capitalize the tweet, and add a period if one is not present
