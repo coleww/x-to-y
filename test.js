@@ -1,0 +1,1 @@
+var s = "posting this on social media doesn't make you look like a \"bad ass\". it's very disrespectful alex. grow up."
