@@ -26,7 +26,9 @@ module.exports = function(x, y, lang, config, nopes) {
     if (nopes) {
       cleaned = cleaned.filter(function (t) {
         return t.split(' ').every(function (w) {
-          return nopes.indexOf(w.replace(/\W/g, '').toLowerCase()) === -1
+          return nopes.every(function (nope) {
+            return w.replace(/\W/g, '').toLowerCase().indexOf(nope) === -1
+          })
         })
       })
     }
