@@ -4,6 +4,7 @@ var cap = require('capitalize')
 var addEnder = require('add-ender')
 var tipots = require('this-is-probably-ok-to-say')
 var cleanThisTweetUp = require('clean-this-tweet-up')
+var decode = require('unescape');
 
 
 module.exports = function(x, y, lang, config, nopes) {
@@ -36,7 +37,9 @@ module.exports = function(x, y, lang, config, nopes) {
     if (cleaned){
       var toot = pick(cleaned)[0] // pick one at random
       toot = addEnder(cap(toot.replace(new RegExp(x, 'gi'), y))) // replace x with y, capitalize the tweet, and add a period if one is not present
+      toot = decode(toot)
       console.log(toot)
+
       if (toot.length < 140) { // if y is longer than x, then it is possible to make a too long tweet! that is not good!
         T.post('statuses/update', {status: toot}, function (err, data, response) { // tweet it out to the world!
           console.log(err)
